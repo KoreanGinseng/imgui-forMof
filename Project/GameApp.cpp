@@ -143,8 +143,10 @@ MofBool CGameApp::Render(void) {
 	//描画開始
 	g_pGraphics->RenderStart();
 	//画面のクリア
-	g_pGraphics->ClearTarget(0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0);
+	g_pGraphics->ClearTarget(clear_color.x, clear_color.y, clear_color.z, 0.0f, 1.0f, 0);
 
+
+	CGraphicsUtilities::RenderString(100, 100, "r:%.3f, g:%.3f, b:%.3f", clear_color.x * 255, clear_color.y * 255, clear_color.z * 255);
 
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
